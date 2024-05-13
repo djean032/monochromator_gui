@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Monochromator Controls</title>
+        <script type="module" src="/main.js" defer></script>
+    </head>
+
+    <body>
+        <button class="btn">Home</button>
+        <h1>Monochromator Controls</h1>
+        <div id="selection_container" class="container home">
+            <h2>Select Mode</h2>
+            <div class="row">
+                <button class="btn" onclick="filterSelection('scan')">
+                    Scan
+                </button>
+                <button class="btn" onclick="filterSelection('single')">
+                    Single Wavelength
+                </button>
+                <button class="btn" onclick="filterSelection('Calibrate')">
+                    Calibrate
+                </button>
+            </div>
+        </div>
+        <div class="container scan hidden">
+            <h2>Select Parameters</h2>
+            <div class="row"></div>
+            <h3>Select Starting Wavelength</h3>
+            <h3>Select Ending Wavelength</h3>
+        </div>
+        <div class="container single hidden">
+            <h2>Select Parameters</h2>
+            <div class="row"></div>
+            <h3>Select Wavelength</h3>
+        </div>
+        <div class="container calibrate hidden">
+            <h2>Select Parameters</h2>
+            <div class="row"></div>
+            <h3>Select Lamp Type</h3>
+        </div>
+    </body>
+</html>
