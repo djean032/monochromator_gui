@@ -44,7 +44,6 @@
     display: none;
 }
 
-
 a {
     font-weight: 500;
     color: #646cff;
@@ -110,4 +109,13 @@ button {
     button:active {
         background-color: #0f0f0f69;
     }
+}
+ul {
+    margin: 0 auto;
+    text-align: justify;
+}
+
+li {
+    margin: 10px 0;
+    list-style-type: none;
 }
