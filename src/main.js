@@ -1,5 +1,9 @@
 const { invoke } = window.__TAURI__.tauri
 
+function color_toggle() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
 function filter_selection(c) {
     var x, i
     x = document.getElementsByClassName('filter')

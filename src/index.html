@@ -1,120 +1,104 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="styles.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Monochromator Controls</title>
-        <script type="text/javascript" src="main.js" defer></script>
-    </head>
 
-    <body>
-        <button class="btn" type="button" id="sel_btn" onclick="reset_filter()">
-            Main Page
-        </button>
-        <h1>Monochromator Controls</h1>
-        <div id="selection_container" class="container filter home">
-            <h2>Select Mode</h2>
-            <div class="row">
-                <button
-                    class="btn"
-                    type="button"
-                    id="sel_btn"
-                    onclick="filter_selection('scan')"
-                >
-                    Scan
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monochromator Controls</title>
+    <script type="text/javascript" src="main.js" defer></script>
+</head>
+
+<body>
+    <button class="btn" type="button" id="sel_btn" onmousedown="reset_filter()">
+        Main Page
+    </button>
+    <h1>Monochromator Controls</h1>
+    <div id="selection_container" class="container filter home">
+        <h2>Select Mode</h2>
+        <div class="row">
+            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('scan')">
+                Scan
+            </button>
+            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('single')">
+                Single Wavelength
+            </button>
+            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('calibrate')">
+                Calibrate
+            </button>
+        </div>
+    </div>
+    <div class="container filter scan hidden">
+        <h2>Select Parameters</h2>
+        <ul>
+            <li>
+                <label for="start">Start:</label>
+                <input type="number" id="start" name="start_wavelength" min="400" max="1200" step="0.3" />
+                <label for="start"> nm</label>
+            </li>
+            <li>
+                <label for="end">End:</label>
+                <input type="number" id="end" name="end_wavelength" min="400" max="1200" step="0.3" />
+                <label for="end"> nm</label>
+            </li>
+            <li>
+                <label for="slit">Slit Width:</label>
+                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" />
+                <label for="slit"> mm<label>
+            </li>
+            <li>
+                <label for="delay">Delay:<label>
+                        <input type="number" id="delay" name="step_delay" min="500" max="3000" step="100" />
+                        <label for="delay"> ms<label>
+            </li>
+            <li>
+                <button type="submit" id="submit" name="submit_scan">
+                    Submit
                 </button>
-                <button
-                    class="btn"
-                    type="button"
-                    id="sel_btn"
-                    onclick="filter_selection('single')"
-                >
-                    Single Wavelength
+            </li>
+        </ul>
+    </div>
+    <div class="container filter single hidden">
+        <h2>Select Parameters</h2>
+        <div class="row"></div>
+        <ul>
+            <li>
+                <label for="wavelength">Wavelength:</label>
+                <input type="number" id="wavelength" name="wavelength" min="400" max="1200" step="0.3" />
+                <label for="wavelength"> nm</label>
+            </li>
+            <li>
+                <label for="slit">Slit Width:</label>
+                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" />
+                <label for="slit"> mm<label>
+            </li>
+            <li>
+                <button type="submit" id="submit" name="submit_single">
+                    Submit
                 </button>
-                <button
-                    class="btn"
-                    type="button"
-                    id="sel_btn"
-                    onclick="filter_selection('calibrate')"
-                >
-                    Calibrate
+            </li>
+        </ul>
+    </div>
+    <div class="container filter calibrate hidden">
+        <h2>Select Parameters</h2>
+        <div class="row"></div>
+        <ul>
+            <li>
+                <label for="sources">Choose a source:</label>
+                <select name="sources" id="sources">
+                    <option value="mercury">Mercury</option>
+                    <option value="hydrogen">Hydrogen</option>
+                    <option value="nitrogen">Nitrogen</option>
+                    <option value="sodium">Sodium</option>
+                </select>
+            </li>
+            <li>
+                <button type="submit" id="submit" name="submit_cal">
+                    Submit
                 </button>
-            </div>
-        </div>
-        <div class="container filter scan hidden">
-            <h2>Select Parameters</h2>
-            <ul>
-                <li>
-                    <label for="start">Start:</label>
-                    <input
-                        type="number"
-                        id="start"
-                        name="start_wavelength"
-                        min="400"
-                        max="1200"
-                    />
-                </li>
-                <li>
-                    <label for="end">End:</label>
-                    <input
-                        type="number"
-                        id="end"
-                        name="end_wavelength"
-                        min="400"
-                        max="1200"
-                    />
-                </li>
-                <li>
-                    <label for="delay">Delay (ms):</label>
-                    <input
-                        type="number"
-                        id="delay"
-                        name="step_delay"
-                        min="500"
-                        max="3000"
-                        step="100"
-                    />
-                </li>
-                <li>
-                    <button type="submit" id="submit" name="submit_scan">
-                        Submit
-                    </button>
-                </li>
-            </ul>
-        </div>
-        <div class="container filter single hidden">
-            <h2>Select Parameters</h2>
-            <div class="row"></div>
-            <ul>
-                <li>
-                    <label for="wavelength"
-                        >Wavelength (between 400 and 1200):</label
-                    >
-                    <input
-                        type="number"
-                        id="wavelength"
-                        name="wavelength"
-                        min="400"
-                        max="1200"
-                    />
-                </li>
-            </ul>
-        </div>
-        <div class="container filter calibrate hidden">
-            <h2>Select Parameters</h2>
-            <div class="row"></div>
-            <ul>
-                <li>
-                    <label for="sources">Choose a source:</label>
-                    <select name="sources" id="sources">
-                        <option value="mercury">Mercury</option>
-                        <option value="hydrogen">Hydrogen</option>
-                        <option value="nitrogen">Nitrogen</option>
-                        <option value="sodium">Sodium</option>
-                    </select>
-                </li>
-            </ul>
-        </div>
-    </body>
+            </li>
+        </ul>
+    </div>
+</body>
+
 </html>

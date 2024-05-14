@@ -6,13 +6,18 @@
     color-scheme: dark;
 
     color: #0f0f0f;
-    background-color: #f6f6f6;
+    background-color: #ffd888;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
 }
 
 .container {
@@ -38,6 +43,7 @@
 .row {
     display: flex;
     justify-content: center;
+    gap: 1.2em;
 }
 
 .hidden {
@@ -110,6 +116,7 @@ button {
         background-color: #0f0f0f69;
     }
 }
+
 ul {
     margin: 0 auto;
     text-align: justify;
