@@ -48,3 +48,14 @@ function remove_class(element, name) {
     }
     element.className = arr1.join(' ')
 }
+
+async function get_ports() {
+    const devices = await invoke('get_serials');
+    const dropdown_menu = document.getElementById("devices");
+    for (var i = 0; i < devices.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = devices[i];
+        opt.innerHTML = devices[i];
+        dropdown_menu.appendChild(opt);
+    }
+}

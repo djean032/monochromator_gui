@@ -9,18 +9,31 @@
     <script type="text/javascript" src="main.js" defer></script>
 </head>
 
-<body>
+<body onload="get_ports()">
     <button class="btn" type="button" id="sel_btn" onclick="reset_filter()">
         Main Page
     </button>
     <h1>Monochromator Controls</h1>
-    <div id="selection_container" class="container filter home">
+    <div class="container">
         <h2>Select Device</h2>
-        <select>
-            <option value="first">First Value</option>
-            <option value="second">Second Value</option>
-            <option value="third">Third Value</option>
-        </select>
+        <div class="row">
+            <select id="devices" required>
+                <option label=" "></option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Select Grating</h2>
+        <div class="row">
+            <select required>
+                <option label=" "></option>
+                <option value="1">Grating 1: (1200 lines/mm)</option>
+                <option value="2">Grating 2: (800 lines/mm)</option>
+                <option value="3">Grating 3: (600 lines/mm)</option>
+            </select>
+        </div>
+    </div>
+    <div id="selection_container" class="container filter home">
         <h2>Select Mode</h2>
         <div class="row">
             <button class="btn" type="button" id="sel_btn" onclick="filter_selection('scan')">
@@ -39,26 +52,26 @@
         <ul>
             <li>
                 <label for="start">Start:</label>
-                <input type="number" id="start" name="start_wavelength" min="400" max="1200" step="0.3" />
+                <input type="number" id="start" name="start_wavelength" min="400" max="1200" step="0.3" required />
                 <label for="start"> nm</label>
             </li>
             <li>
                 <label for="end">End:</label>
-                <input type="number" id="end" name="end_wavelength" min="400" max="1200" step="0.3" />
+                <input type="number" id="end" name="end_wavelength" min="400" max="1200" step="0.3" required />
                 <label for="end"> nm</label>
             </li>
             <li>
                 <label for="slit">Slit Width:</label>
-                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" />
+                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" required />
                 <label for="slit"> mm<label>
             </li>
             <li>
                 <label for="delay">Delay:<label>
-                        <input type="number" id="delay" name="step_delay" min="500" max="3000" step="100" />
+                        <input type="number" id="delay" name="step_delay" min="500" max="3000" step="100" required />
                         <label for="delay"> ms<label>
             </li>
             <li>
-                <button type="submit" id="submit" name="submit_scan">
+                <button type="button" id="submit" name="submit_scan">
                     Submit
                 </button>
             </li>
@@ -70,16 +83,16 @@
         <ul>
             <li>
                 <label for="wavelength">Wavelength:</label>
-                <input type="number" id="wavelength" name="wavelength" min="400" max="1200" step="0.3" />
+                <input type="number" id="wavelength" name="wavelength" min="400" max="1200" step="0.3" required />
                 <label for="wavelength"> nm</label>
             </li>
             <li>
                 <label for="slit">Slit Width:</label>
-                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" />
+                <input type="number" id="slit" name="slit_width" min="0" max="7.0" step="0.002" required />
                 <label for="slit"> mm<label>
             </li>
             <li>
-                <button type="submit" id="submit" name="submit_single">
+                <button type="button" id="submit" name="submit_single">
                     Submit
                 </button>
             </li>
@@ -91,7 +104,8 @@
         <ul>
             <li>
                 <label for="sources">Choose a source:</label>
-                <select name="sources" id="sources">
+                <select name="sources" id="sources" required>
+                    <option label=" "></option>
                     <option value="mercury">Mercury</option>
                     <option value="hydrogen">Hydrogen</option>
                     <option value="nitrogen">Nitrogen</option>
@@ -99,7 +113,7 @@
                 </select>
             </li>
             <li>
-                <button type="submit" id="submit" name="submit_cal">
+                <button type="button" id="submit" name="submit_cal">
                     Submit
                 </button>
             </li>
