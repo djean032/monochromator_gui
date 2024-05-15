@@ -10,6 +10,7 @@
     "@tauri-apps/cli": "^1.5.14"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "yarn": "^1.22.22"
   }
 }

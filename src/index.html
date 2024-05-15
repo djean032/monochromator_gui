@@ -10,20 +10,26 @@
 </head>
 
 <body>
-    <button class="btn" type="button" id="sel_btn" onmousedown="reset_filter()">
+    <button class="btn" type="button" id="sel_btn" onclick="reset_filter()">
         Main Page
     </button>
     <h1>Monochromator Controls</h1>
     <div id="selection_container" class="container filter home">
+        <h2>Select Device</h2>
+        <select>
+            <option value="first">First Value</option>
+            <option value="second">Second Value</option>
+            <option value="third">Third Value</option>
+        </select>
         <h2>Select Mode</h2>
         <div class="row">
-            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('scan')">
+            <button class="btn" type="button" id="sel_btn" onclick="filter_selection('scan')">
                 Scan
             </button>
-            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('single')">
+            <button class="btn" type="button" id="sel_btn" onclick="filter_selection('single')">
                 Single Wavelength
             </button>
-            <button class="btn" type="button" id="sel_btn" onmousedown="filter_selection('calibrate')">
+            <button class="btn" type="button" id="sel_btn" onclick="filter_selection('calibrate')">
                 Calibrate
             </button>
         </div>
